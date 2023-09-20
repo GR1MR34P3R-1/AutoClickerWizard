@@ -87,20 +87,18 @@ Make sure you have the following prerequisites installed:
 2. Configure your auto-clicking preferences:
 - Set the click interval (in seconds).
 - Specify the number of clicks.
-- Optionally, enable custom coordinates and enter X and Y values.
+- Optionally, enable custom coordinates and enter `X` and `Y`values.
 
-3. Click the "Start" button or use the hotkey ";" to begin auto-clicking.
+3. Click the "Start" button or use the hotkey `;` to begin auto-clicking.
 
-4. To stop auto-clicking, press the "," key or click the "Stop" button.
+4. To stop auto-clicking, press the `,` key or click the `Stop` button.
 
-5. In case of an emergency, press the "Esc" key to immediately stop auto-clicking.
+5. In case of an emergency, press the `Esc` key to immediately stop auto-clicking.
 
 ## Hotkeys
-- Start auto-clicking: ;
-Stop auto-clicking: ,
-Panic button (emergency stop): Esc
-Documentation
-Visit the Auto-Clicker Documentation for detailed usage instructions and examples.
+- Start auto-clicking: `;`
+Stop auto-clicking: `,`
+Panic button (emergency stop): `Esc`
 
 ## AutoClickWizard Future Updates
 
