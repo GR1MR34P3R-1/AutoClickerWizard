@@ -7,7 +7,7 @@ from tkinter import messagebox
 import threading
 import keyboard
 import traceback
-import logging  # Added for logging
+import logging
 
 # Configure the logging
 log_file_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), "auto_clicker.log")
@@ -117,63 +117,16 @@ def on_closing():
             return
     app.destroy()
 
-# Create the main application window
-app = tk.Tk()
-app.title("Auto-Clicker")
-app.protocol("WM_DELETE_WINDOW", on_closing)  # Handle application close event
-
-# Create and configure widgets
-click_interval_label = ttk.Label(app, text="Click Interval (seconds):")
-click_interval_label.grid(row=0, column=0, padx=10, pady=5)
-click_interval_entry = ttk.Entry(app)
-click_interval_entry.grid(row=0, column=1, padx=10, pady=5)
-click_interval_entry.insert(0, str(default_click_interval))
-
-num_clicks_label = ttk.Label(app, text="Number of Clicks:")
-num_clicks_label.grid(row=1, column=0, padx=10, pady=5)
-num_clicks_entry = ttk.Entry(app)
-num_clicks_entry.grid(row=1, column=1, padx=10, pady=5)
-num_clicks_entry.insert(0, str(default_num_clicks))
-
-# Checkbox to enable custom coordinates
-custom_coordinates_var = tk.BooleanVar()
-custom_coordinates_checkbox = ttk.Checkbutton(app, text="Use Custom Coordinates", variable=custom_coordinates_var)
-custom_coordinates_checkbox.grid(row=2, column=0, columnspan=2, padx=10, pady=5)
-
-# Entry fields for custom coordinates
-custom_x_label = ttk.Label(app, text="Custom X:")
-custom_x_label.grid(row=3, column=0, padx=10, pady=5)
-custom_x_entry = ttk.Entry(app)
-custom_x_entry.grid(row=3, column=1, padx=10, pady=5)
-
-custom_y_label = ttk.Label(app, text="Custom Y:")
-custom_y_label.grid(row=4, column=0, padx=10, pady=5)
-custom_y_entry = ttk.Entry(app)
-custom_y_entry.grid(row=4, column=1, padx=10, pady=5)
-
-start_stop_label = ttk.Label(app, text="Stopped", foreground="red", font=("Arial", 16))
-start_stop_label.grid(row=5, column=0, columnspan=2, padx=10, pady=10)
-
-usage_button = ttk.Button(app, text="How to Use", command=lambda: show_usage_dialog())
-usage_button.grid(row=6, column=0, columnspan=2, padx=10, pady=10)
-
-agreement_button = ttk.Button(app, text="User Agreement", command=lambda: show_agreement_dialog())
-agreement_button.grid(row=7, column=0, columnspan=2, padx=10, pady=10)
-
-result_label = ttk.Label(app, text="")
-result_label.grid(row=8, column=0, columnspan=2, padx=10, pady=5)
-
-# Global variables to control auto-clicking and custom mode
-stop_clicking = True
-custom_mode = False
-
-# Set the pyautogui fail-safe to move the mouse to the top-left corner if it gets out of control
-pyautogui.FAILSAFE = True
-
-# Start listening for keypress events
-keyboard.add_hotkey(';', start_auto_clicking)
-keyboard.add_hotkey(',', stop_auto_clicking)
-keyboard.add_hotkey('esc', panic_button)
+# Function to enable/disable custom coordinates input fields
+def toggle_custom_coordinates():
+    global custom_mode
+    custom_mode = custom_coordinates_var.get()
+    if custom_mode:
+        custom_x_entry.config(state=tk.NORMAL)
+        custom_y_entry.config(state=tk.NORMAL)
+    else:
+        custom_x_entry.config(state=tk.DISABLED)
+        custom_y_entry.config(state=tk.DISABLED)
 
 # Function to show usage dialog
 def show_usage_dialog():
@@ -203,6 +156,90 @@ def show_agreement_dialog():
     If you do not agree to these terms, please do not use this software.
     """
     messagebox.showinfo("User Agreement", agreement_text)
+
+# Function to show the "About" dialog
+def show_about_dialog():
+    about_text = """
+    About Auto-Clicker v1.0
+
+    Developed by GR1MR34P3R-1
+
+    Program History:
+    Auto-Clicker was created to stress test software projects by automating repetitive clicks. It started as a minimalist terminal-based tool a few months ago and has evolved into a user-friendly GUI application.
+
+    Key Features:
+    - Efficient Automation: Auto-Clicker automates mouse clicks with precision.
+    - Enhanced User Experience: The program now offers a user-friendly GUI.
+    - Error Handling: Improved error handling for a more reliable experience.
+    - Fail-Safe Mechanism: Prevents accidental chaos if the mouse is moved during operation.
+
+    Technical Details:
+    Auto-Clicker is built using Python and utilizes the tkinter, pyautogui, keyboard, and logging libraries. Multithreading ensures a responsive GUI while automating clicks.
+
+    Enjoy using Auto-Clicker for your automation and testing needs!
+    """
+    messagebox.showinfo("About", about_text)
+
+# Create the main application window
+app = tk.Tk()
+app.title("Auto-Clicker")
+app.protocol("WM_DELETE_WINDOW", on_closing)  # Handle application close event
+
+# Create and configure widgets
+click_interval_label = ttk.Label(app, text="Click Interval (seconds):")
+click_interval_label.grid(row=0, column=0, padx=10, pady=5)
+click_interval_entry = ttk.Entry(app)
+click_interval_entry.grid(row=0, column=1, padx=10, pady=5)
+click_interval_entry.insert(0, str(default_click_interval))
+
+num_clicks_label = ttk.Label(app, text="Number of Clicks:")
+num_clicks_label.grid(row=1, column=0, padx=10, pady=5)
+num_clicks_entry = ttk.Entry(app)
+num_clicks_entry.grid(row=1, column=1, padx=10, pady=5)
+num_clicks_entry.insert(0, str(default_num_clicks))
+
+# Checkbox to enable custom coordinates
+custom_coordinates_var = tk.BooleanVar()
+custom_coordinates_checkbox = ttk.Checkbutton(app, text="Use Custom Coordinates", variable=custom_coordinates_var, command=toggle_custom_coordinates)
+custom_coordinates_checkbox.grid(row=2, column=0, columnspan=2, padx=10, pady=5)
+
+# Entry fields for custom coordinates
+custom_x_label = ttk.Label(app, text="Custom X:")
+custom_x_label.grid(row=3, column=0, padx=10, pady=5)
+custom_x_entry = ttk.Entry(app, state=tk.DISABLED)
+custom_x_entry.grid(row=3, column=1, padx=10, pady=5)
+
+custom_y_label = ttk.Label(app, text="Custom Y:")
+custom_y_label.grid(row=4, column=0, padx=10, pady=5)
+custom_y_entry = ttk.Entry(app, state=tk.DISABLED)
+custom_y_entry.grid(row=4, column=1, padx=10, pady=5)
+
+start_stop_label = ttk.Label(app, text="Stopped", foreground="red", font=("Arial", 16))
+start_stop_label.grid(row=5, column=0, columnspan=2, padx=10, pady=10)
+
+usage_button = ttk.Button(app, text="How to Use", command=lambda: show_usage_dialog())
+usage_button.grid(row=6, column=0, columnspan=2, padx=10, pady=10)
+
+agreement_button = ttk.Button(app, text="User Agreement", command=lambda: show_agreement_dialog())
+agreement_button.grid(row=7, column=0, columnspan=2, padx=10, pady=10)
+
+about_button = ttk.Button(app, text="About", command=lambda: show_about_dialog())
+about_button.grid(row=8, column=0, columnspan=2, padx=10, pady=10)
+
+result_label = ttk.Label(app, text="")
+result_label.grid(row=9, column=0, columnspan=2, padx=10, pady=5)
+
+# Global variables to control auto-clicking and custom mode
+stop_clicking = True
+custom_mode = False
+
+# Set the pyautogui fail-safe to move the mouse to the top-left corner if it gets out of control
+pyautogui.FAILSAFE = True
+
+# Start listening for keypress events
+keyboard.add_hotkey(';', start_auto_clicking)
+keyboard.add_hotkey(',', stop_auto_clicking)
+keyboard.add_hotkey('esc', panic_button)
 
 # Start the Tkinter main loop
 app.mainloop()
