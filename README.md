@@ -17,7 +17,6 @@ An easy-to-use Python-based auto-clicker program with a graphical user interface
   - [Usage](#usage)
   - [Hotkeys](#hotkeys)
   - [AutoClickWizard Future Updates](#AutoClickWizard-Future-Updates)
-  - [Documentation](#documentation)
   - [License](#license)
  
 ## About
