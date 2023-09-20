@@ -106,6 +106,26 @@ Panic button (emergency stop): Esc
 Documentation
 Visit the Auto-Clicker Documentation for detailed usage instructions and examples.
 
+## Future Updates
+
+As the main developer behind AutoClickWizard, I am dedicated to improving and expanding its functionality to provide you with a better user experience. Here are some exciting features and improvements I plan to implement in future updates:
+
+### Click Point Recording
+
+In an upcoming update, I will introduce the ability to record and save specific click points on your screen. This feature will make it easier to automate tasks that involve interacting with specific elements or locations. Here's what you can expect:
+
+- **Record Click Points:** Click anywhere on your screen to record the coordinates of the click.
+- **Save and Name Click Sets:** Save the recorded click points and give them meaningful names for easy reference.
+- **Edit and Delete:** Optionally, you'll be able to edit or delete recorded click points as needed.
+- **Execute Recorded Clicks:** Run the saved click point sets to automate your tasks efficiently.
+
+### Persistent UI
+
+I understand the importance of keeping the program's user interface (UI) accessible at all times. In an upcoming update, I plan to achieve this with the following improvements:
+
+- **System Tray Icon:** I will introduce a system tray (or taskbar) icon that allows you to minimize the main window while keeping the program running in the background.
+- **Access from System Tray:** By clicking the system tray icon, you can access the program's UI quickly and easily.
+
 ## License
 - This program is licensed under the [MIT License](LICENSE). Feel free to use, modify, and distribute it as per the terms of the license.
 
