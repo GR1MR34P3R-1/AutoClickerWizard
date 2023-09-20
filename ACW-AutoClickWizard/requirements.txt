@@ -1,0 +1,3 @@
+pyautogui==0.9.52
+keyboard==0.13.5
+tkinter==8.6
