@@ -5,16 +5,24 @@ An easy-to-use Python-based auto-clicker program with a graphical user interface
 ![License](https://img.shields.io/badge/License-MIT-red.svg)
 ![Python Version](https://img.shields.io/badge/Python-3.8-red)
 
-## Table of Contents
-  - [About](#about)
-  - [Features](#features)
-  - [Getting Started](#getting-started)
-    - [Prerequisites](#prerequisites)
-    - [Installation](#installation)
-  - [Usage](#usage)
-  - [Hotkeys](#hotkeys)
-  - [License](#license)
-  - [Have a Great Day! 🌟](#have-a-great-day-)
+# Table of Contents
+
+1. [About](#about)
+    1.1 [Key Highlights](#key-highlights)
+
+2. [Features](#features)
+
+3. [Getting Started](#getting-started)
+    3.1 [Prerequisites](#prerequisites)
+    3.2 [Installation](#installation)
+
+4. [Usage](#usage)
+
+5. [Hotkeys](#hotkeys)
+
+6. [License](#license)
+
+7. [Have a Great Day! 🌟](#have-a-great-day-)
 
 ## About
 Welcome to the AutoClickWizard — your trusted Python companion for automating repetitive clicking tasks effortlessly. Say goodbye to the monotony of repetitive actions and hello to streamlined efficiency.
