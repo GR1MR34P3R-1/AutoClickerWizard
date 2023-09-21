@@ -106,7 +106,7 @@ As the main developer behind AutoClickWizard, I am committed to enhancing and ex
 
 ### Click Point Recording
 
-In an upcoming update, we will introduce the ability to record and save specific click points on your screen. This feature will make it easier to automate tasks that involve interacting with specific elements or locations. Here's what you can expect:
+In an upcoming update, I will introduce the ability to record and save specific click points on your screen. This feature will make it easier to automate tasks that involve interacting with specific elements or locations. Here's what you can expect:
 
 - **Record Click Points**: Simply click anywhere on your screen to record the coordinates of the click.
 - **Save and Name Click Sets**: You can save the recorded click points and give them meaningful names for easy reference.
