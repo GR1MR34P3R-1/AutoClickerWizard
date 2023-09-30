@@ -5,6 +5,7 @@ An easy-to-use Python-based auto-clicker program with a graphical user interface
 ![License](https://img.shields.io/badge/License-MIT-red.svg)
 ![Python Version](https://img.shields.io/badge/Python-3.8-red)
 
+
 ## Table of Contents
 
 - [Auto-Clicker](#auto-clicker)
@@ -16,26 +17,18 @@ An easy-to-use Python-based auto-clicker program with a graphical user interface
     - [Installation](#installation)
   - [Usage](#usage)
   - [Hotkeys](#hotkeys)
-  - [AutoClickWizard Future Updates](#AutoClickWizard-Future-Updates)
+  - [Recent Updates](#recent-updates)
+  - [Report Issues](#report-issues)
   - [License](#license)
- 
+  - [Wrapping Up](#wrapping-up)
+
 ## About
 
-Welcome to the AutoClickWizard — your trusted Python companion for automating repetitive clicking tasks effortlessly. Say goodbye to the monotony of repetitive actions and hello to streamlined efficiency.
-
-### Key Highlights:
-
-- Intuitive User Experience: Our user-friendly GUI ensures a hassle-free experience, even for beginners.
-
-- Tailored Clicking: Customize your automation with adjustable click intervals and precise click coordinates, putting you in control of the process.
-
-- Effortless Automation: Whether you're looking to simplify gaming tasks or expedite repetitive actions on your computer, this tool is your time-saving ally.
-
-Unleash the power of automation and reclaim your time with the Auto-Clicker. Get ready to click smarter, not harder!
+Hey there, welcome to AutoClickWizard – your trusty Python-driven auto-clicker. Wave goodbye to the dull grind of repetitive chores and dive into a world of super-smooth efficiency.
 
 ## Features
 
-- **Intuitive GUI**: A user-friendly graphical user interface makes it easy for users to configure auto-clicking settings.
+- **Intuitive GUI**: A user-friendly graphical user interface makes it easy to configure auto-clicking settings.
 
 - **Customizable Clicking**: Set the click interval (in seconds) and specify the number of clicks you want to perform, giving you full control over the automation process.
 
@@ -49,11 +42,9 @@ Unleash the power of automation and reclaim your time with the Auto-Clicker. Get
 
 - **Event Logging**: The program logs events and errors, helping with troubleshooting and providing a record of auto-clicking activities.
 
-These features make the Auto-Clicker a versatile and user-friendly tool for automating repetitive clicking tasks. Whether you need to streamline tasks in a game or automate actions on your computer, this program offers customization, safety, and convenience.
-
 ## Getting Started
 
-Follow these steps to get the Auto-Clicker up and running on your system.
+Follow these steps to get AutoClickWizard up and running on your system.
 
 ### Prerequisites
 
@@ -69,57 +60,83 @@ Make sure you have the following prerequisites installed:
   ```bash
   git clone https://github.com/GR1MR34P3R-1/AutoClickWizard.git
   ```
+
 2. Navigate to the project directory:
-  ```
+
+  ```bash
   cd ACW-AutoClickWizard
   ```
+
 3. Install dependencies:
-  ```
+
+  ```bash
   pip install -r requirements.txt
   ```
+
 ## Usage
 
 1. Launch the Auto-Clicker GUI by running:
-  ```
+
+  ```bash
   python main.py
   ```
 
 2. Configure your auto-clicking preferences:
-- Set the click interval (in seconds).
-- Specify the number of clicks.
-- Optionally, enable custom coordinates and enter `X` and `Y`values.
+- Set the Clicks Per Second (CPS) using the slider (up to 10 CPS).
+- Set the Number of Clicks.
+- Optionally, enable custom coordinates and enter `X` and `Y` values.
 
 3. Click the "Start" button or use the hotkey `;` to begin auto-clicking.
 
-4. To stop auto-clicking, press the `,` key or click the `Stop` button.
+4. To stop auto-clicking, press the `,` key.
 
 5. In case of an emergency, press the `Esc` key to immediately stop auto-clicking.
 
 ## Hotkeys
+
 - Start auto-clicking: `;`
-Stop auto-clicking: `,`
-Panic button (emergency stop): `Esc`
+- Stop auto-clicking: `,`
+- Panic button (emergency stop): `Esc`
 
-## AutoClickWizard Future Updates
+## Recent Updates 
+~~**V1.0.0 (9/20/23):**~~
 
-As the main developer behind AutoClickWizard, I am committed to enhancing and expanding its functionality to provide you with an improved user experience. Here are some exciting features and improvements I plan to implement in future updates:
+~~- Basic Auto-Clicking: The program allows you to specify a click interval (in seconds) and a number of clicks. It will then perform the specified number of clicks with the given interval.~~
 
-### Click Point Recording
+~~- Custom Coordinates: You can enable custom coordinates mode to specify the X and Y coordinates where the clicks should occur.~~
 
-In an upcoming update, I will introduce the ability to record and save specific click points on your screen. This feature will make it easier to automate tasks that involve interacting with specific elements or locations. Here's what you can expect:
+~~- Error Handling: Basic error handling is in place to handle simple input errors.~~
 
-- **Record Click Points**: Simply click anywhere on your screen to record the coordinates of the click.
-- **Save and Name Click Sets**: You can save the recorded click points and give them meaningful names for easy reference.
-- **Edit and Delete**: Optionally, you'll be able to edit or delete recorded click points as needed.
-- **Execute Recorded Clicks**: Run the saved click point sets to automate your tasks efficiently.
+~~- Fail-Safe Mechanism: A simple fail-safe mechanism is implemented to stop auto-clicking if the mouse cursor approaches the screen edges.~~
 
-### Persistent UI
+~~- User Agreement: The program includes a user agreement dialog to inform users of their responsibilities. About Dialog: An "About" dialog provides some information about the program's history and key features.~~
 
-- **System Tray Icon**: I will introduce a system tray (or taskbar) icon will allow you to minimize the main window while keeping the program running in the background.
-- **Access from System Tray**: By clicking the system tray icon, users will be able to swiftly access and interact with the program's UI. Furthermore, a "Persistent Window" mode will be implemented to ensure your UI remains prominently visible regardless of other open windows or tasks.
+- <ins>**V2.0.0 (9/30/2023):**</ins>
+
+- **Input Validation:** Added input validation for the CPS (Clicks Per Second) and the number of clicks to ensure valid inputs.
+
+- **Custom Coordinates Validation:** Implemented validation for custom X and Y coordinates when in custom mode, ensuring coordinates are within the screen boundaries.
+
+- **Program State Management:** Introduced the `program_running` variable to track whether the auto-clicking program is running, preventing you from starting it when it's already running and handling the "Panic Button" appropriately.
+
+- **Thread Handling:** Added error handling for thread execution when starting auto-clicking, displaying error messages for thread-related issues and terminating the thread if it doesn't stop gracefully.
+
+- **Hotkey Registration Error Handling:** Provided error handling for registering hotkeys to help you understand if hotkeys could not be registered.
+
+- **Global Exception Handler:** Implemented a global exception handler to capture unhandled exceptions and log them, ensuring the program's stability.
+
+## Report Issues
+
+If you encounter any issues or have suggestions for improvements, please [report them on GitHub](https://github.com/GR1MR34P3R-1/AutoClickerWizard/issues).
+
+You can also check the [existing issues](https://github.com/GR1MR34P3R-1/AutoClickerWizard/issues) to see if your concern has already been addressed.
 
 ## License
+
 - This program is licensed under the [MIT License](LICENSE). Feel free to use, modify, and distribute it as per the terms of the license.
 
-## Have a Great Day! 🌟
-- 🌟 Have fun exploring the capabilities of AutoClickWizard. If you have any questions or need assistance, don't hesitate to reach out just open a issue ticket. 😊
+## Wrapping Up
+
+Thanks for choosing AutoClickWizard! 🚀 I hope you enjoy its features and find it useful for your tasks. If you have any questions, feedback, or encounter any issues, please don't hesitate to [report them](#issue-reporting) on our GitHub repository.
+
+Have a fantastic day, and happy clicking! 🌟
