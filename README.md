@@ -1,7 +1,5 @@
 # AutoClickWizard
 
-An easy-to-use Python-based auto-clicker program with a graphical user interface (GUI).
-
 ![License](https://img.shields.io/badge/License-MIT-red.svg)
 ![Python Version](https://img.shields.io/badge/Python-3.8-red)
 
