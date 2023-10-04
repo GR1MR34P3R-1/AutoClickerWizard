@@ -125,6 +125,20 @@ Make sure you have the following prerequisites installed:
 
 - **Global Exception Handler:** Implemented a global exception handler to capture unhandled exceptions and log them, ensuring the program's stability.
 
+- **Fixed Issue:** Addressed and fixed the **"cannot join current thread" issue.**
+
+
+## VirusTotal Scan Results
+
+The safety and security of AutoClickWizard is our priority. To ensure the programs reliability we have conducted a virus scan using VirusTotal, a recognized online service that analyzes files and URLs for potential threats.
+
+You can check out the results by clicking on this VirusTotal [Scan Link](https://www.virustotal.com/gui/file/b9f9f5bed3552c38f1ab373c4f7cb3e82f59c691bceab3c45406663889dd0cc6/detection).
+
+Please keep in mind that these results are provided by the VirusTotal community and various antivirus engines. We encourage users to review the results for their peace of mind.
+
+If you have any questions or concerns, about the security of AutoClickWizard please don't hesitate to reach out to the [developer](https://github.com/GR1MR34P3R-1/AutoClickerWizard/issues). I will be more, than happy to assist you.
+
+
 ## Report Issues
 
 If you encounter any issues or have suggestions for improvements, please [report them on GitHub](https://github.com/GR1MR34P3R-1/AutoClickerWizard/issues).
