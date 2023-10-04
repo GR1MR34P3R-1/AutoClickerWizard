@@ -167,14 +167,16 @@ def stop_auto_clicking():
     stop_clicking = True
     start_stop_label.config(text="Stopping...", foreground="orange")  # Set text color to orange
 
-    # Wait for the auto-clicking thread to finish with a timeout
-    timeout_seconds = 5  # Adjust the timeout as needed
-    auto_click_thread.join(timeout=timeout_seconds)
+    # Check if the auto-click thread is not the current thread before joining
+    if auto_click_thread != threading.current_thread():
+        # Wait for the auto-clicking thread to finish with a timeout
+        timeout_seconds = 5  # Adjust the timeout as needed
+        auto_click_thread.join(timeout=timeout_seconds)
 
-    if auto_click_thread.is_alive():
-        # Thread didn't stop gracefully, forcefully terminate it
-        handle_error("Auto-clicking thread didn't stop gracefully, forcefully terminating...", context="Thread termination")
-        auto_click_thread._stop()  # Use thread termination as a last resort
+        if auto_click_thread.is_alive():
+            # Thread didn't stop gracefully, forcefully terminate it
+            handle_error("Auto-clicking thread didn't stop gracefully, forcefully terminating...", context="Thread termination")
+            auto_click_thread._stop()  # Use thread termination as a last resort
 
     # Update the program state
     program_running = False
